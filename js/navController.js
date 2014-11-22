@@ -1,5 +1,5 @@
 storganManley.controller('navController', function($scope) {
-	$scope.title = "Storgan Manley";
+	$scope.title = "Sentim.Net";
 	$scope.showError = false;
 	$scope.error = "~ not set: error should not be showing ~";
 
@@ -13,8 +13,15 @@ storganManley.controller('navController', function($scope) {
 	};
 
 	$scope.submitBtn = function(){
-		$scope.error = "clicked submit";
-		$scope.showError = true;
+		var submitModal = $("#submitModal");
+		var submitModalWrapper = $("#submitModalWrapper");
+		if(submitModal.is(":visible")){
+			submitModal.hide();
+			submitModalWrapper.hide();
+		}else{
+			submitModal.show();
+			submitModalWrapper.show();
+		}
 	};
 
 

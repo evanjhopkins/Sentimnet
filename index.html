@@ -10,7 +10,7 @@ window.onload = function(){
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Storgan Manley</title>
+	<title>Sentim-Net</title>
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/home.css" rel="stylesheet">
 	<link href="css/index.css" rel="stylesheet">
@@ -40,6 +40,20 @@ window.onload = function(){
 			<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
 			{{ error }} 
 		</div>
+
+		<div id="submitModalWrapper">
+			<div id="submitModal">
+			<h2>Submit a Confession</h2><hr>
+			<textarea rows="10" cols="65">
+				At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies. 
+			</textarea>
+				<div class="pull-right modal-buttons">
+					<button class="btn btn-default" ng-click="" >Submit</button>
+					<button class="btn btn-default" ng-click="submitBtn()" >Cancel</button>
+				</div>
+			</div>
+
+		</div>
 	</div>
 
 	<div ng-view>
@@ -53,10 +67,7 @@ window.onload = function(){
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 
-<div id="submitModalWrapper">
-	<div id="submitModal">
-	</div>
-</div>
+
 
 </body>
 </html>
