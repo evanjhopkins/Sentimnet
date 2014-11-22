@@ -19,12 +19,23 @@
 					</a>
 					<span class="icon-bar"></span>
 				</div>
+				<ul class="nav navbar-nav">
+        			<li ng-click="homeBtn()" class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+        			<li ng-click="chartBtn()" ><a href="#">Chart </a></li>
+        			<li ng-click="submitBtn()" ><a href="#">Submit </a></li>
+        		</ul>
+        		 <h4 class="pull-right">{{ title }}</h4>
 			</div>
 		</nav>
+		
+		<div ng-show="showError" class="alert alert-danger">
+			<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+			{{ error }} 
+		</div>
 	</div>
 
 	<div ng-view>
-    	<h1>{{ percent }}</h1>
+ 
     </div>
     <script src="js/homeController.js"></script>
 	<script src="js/navController.js"></script>
