@@ -24,12 +24,15 @@
 }
 
 #loadMore{
+	margin-left: 44%;
 	color: #CCD8FC;
 	font-size: 25px;
 	background: none;
 	border: 1px solid #CCD8FC;
 	border-radius: 10px;
 	padding: 10px;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
 }
 #loadMore:hover{
 	color: #AEC2FC;

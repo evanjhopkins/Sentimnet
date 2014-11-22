@@ -16,9 +16,9 @@ storganManley.config(function($routeProvider) {
         // })
 
         // // route for the chart page
-        // .when('/submit', {
-        //     templateUrl : 'pages/submit.html',
-        //     controller  : 'submitController'
+        // .when('/about', {
+        //     templateUrl : 'pages/about.html',
+        //     controller  : 'aboutController'
         // });
 });
 
