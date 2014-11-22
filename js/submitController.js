@@ -1,12 +1,16 @@
-storganManley.controller('submitController', function($scope, Posts) {
+storganManley.controller('submitController', function($scope, PostService, ErrorService) {
     $scope.title = "Chart Page";
     $scope.postText = "";
-	$scope.posts = Posts;
+	$scope.posts = PostService;
+	$scope.error = ErrorService;
     
     $scope.submitBtn = function(){
     	
     	if(postValidate($scope.postText)){
     		$scope.posts.posts.unshift($scope.postText);
+    		$scope.cancelBtn();
+    	}else{
+    		$scope.error.message = "You left the post field blank";
     		$scope.cancelBtn();
     	}
     };

@@ -1,7 +1,7 @@
-storganManley.controller('navController', function($scope) {
+storganManley.controller('navController', function($scope, ErrorService) {
 	$scope.title = "Sentim.Net";
 	$scope.showError = false;
-	$scope.error = "~ not set: error should not be showing ~";
+	$scope.error = ErrorService;
 
 	$scope.homeBtn = function(){
 		

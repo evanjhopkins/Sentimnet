@@ -37,9 +37,9 @@ window.onload = function(){
 			</div>
 		</nav>
 
-		<div ng-show="showError" class="alert alert-danger">
+		<div ng-show="error.message" class="alert alert-danger">
 			<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-			{{ error }} 
+			{{ error.message }} 
 		</div>
 
 	</div>
