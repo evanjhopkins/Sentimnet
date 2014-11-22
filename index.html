@@ -14,6 +14,7 @@ window.onload = function(){
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/home.css" rel="stylesheet">
 	<link href="css/index.css" rel="stylesheet">
+	<link href="css/chart.css" rel="stylesheet">
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
 </head>
 <body>
@@ -29,7 +30,7 @@ window.onload = function(){
 				</div>
 				<ul class="nav navbar-nav">
         			<li ng-click="homeBtn()" class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
-        			<li ng-click="chartBtn()" ><a href="#">Chart </a></li>
+        			<li><a ng-click="chartBtn()" href="#chart">Chart </a></li>
         			<li ng-click="submitBtn()" ><a href="#">Submit </a></li>
         		</ul>
         		 <h4 class="pull-right">{{ title }}</h4>
@@ -41,19 +42,6 @@ window.onload = function(){
 			{{ error }} 
 		</div>
 
-		<div id="submitModalWrapper">
-			<div id="submitModal">
-			<h2>Submit a Confession</h2><hr>
-			<textarea rows="10" cols="65">
-				At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies. 
-			</textarea>
-				<div class="pull-right modal-buttons">
-					<button class="btn btn-default" ng-click="" >Submit</button>
-					<button class="btn btn-default" ng-click="submitBtn()" >Cancel</button>
-				</div>
-			</div>
-
-		</div>
 	</div>
 
 	<div ng-view>
@@ -64,10 +52,23 @@ window.onload = function(){
     </div>
     <script src="js/homeController.js"></script>
 	<script src="js/navController.js"></script>
+	<script src="js/chartController.js"></script>
+	<script src="js/submitController.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 
+    <div id="submitModalWrapper">
+		<div id="submitModal" ng-controller="submitController">
+		<h2>Submit a Confession</h2><hr>
+		<textarea rows="10" cols="65" ng-model="postText">
+			
+		</textarea>
+			<div class="pull-right modal-buttons">
+				<button class="btn btn-default" ng-click="submitBtn()" >Submit</button>
+				<button class="btn btn-default" ng-click="cancelBtn()" >Cancel</button>
+			</div>
+		</div>
 
-
+	</div>
 </body>
 </html>

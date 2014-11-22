@@ -4,12 +4,10 @@ storganManley.controller('navController', function($scope) {
 	$scope.error = "~ not set: error should not be showing ~";
 
 	$scope.homeBtn = function(){
-		$scope.error = "clicked home";
-		$scope.showError = true;
+		
 	};
 	$scope.chartBtn = function(){
-		$scope.error = "clicked chart";
-		$scope.showError = true;
+	
 	};
 
 	$scope.submitBtn = function(){
@@ -19,8 +17,8 @@ storganManley.controller('navController', function($scope) {
 			submitModal.hide();
 			submitModalWrapper.hide();
 		}else{
-			submitModal.show();
-			submitModalWrapper.show();
+			submitModal.fadeIn();
+			submitModalWrapper.fadeIn();
 		}
 	};
 

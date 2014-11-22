@@ -1,5 +1,9 @@
 var storganManley = angular.module('storganManley', []);
 
+storganManley.factory("Posts", function(){
+    return {posts: ["I am a post from a service", "test"]}
+});
+
 storganManley.config(function($routeProvider) {
     $routeProvider
 
@@ -9,11 +13,11 @@ storganManley.config(function($routeProvider) {
             controller  : 'homeController'
         })
 
-        // // route for the submission page
-        // .when('/chart', {
-        //     templateUrl : 'pages/chart.html',
-        //     controller  : 'chartController'
-        // })
+        // route for the submission page
+        .when('/chart', {
+            templateUrl : 'pages/chart.html',
+            controller  : 'chartController'
+        })
 
         // // route for the chart page
         // .when('/about', {
@@ -23,14 +27,14 @@ storganManley.config(function($routeProvider) {
 });
 
 
-storganManley.controller('homeController', function($scope) {
+storganManley.controller('homeController', function($scope, Posts) {
     var dummyPosts = [
         "This is an example of a confession. This is an example of a confession. This is an exdddample of a confession. This is an example of a confession. This is an example of a confession. This is an exaddmple of a confession. This is an exdddample of a confession. This is an example of a confession. This is an example of a confession. This is an example of a confession.",
         "This is an example of a confession. This is an example of a confession. This is an exdddample of a confession. This is an example of a confession. This is an example of a confession. This is an exaddmple of a confession. This is an exdddample of a confession. This is an example of a confession. This is an example of a confession. This is an example of a confession. This is an example of a confession. This is an example of a confession. This is an exdddample of a confession. This is an example of a confession. This is an example of a confession. This is an exaddmple of a confession. This is an exdddample of a confession. This is an example of a confession. This is an example of a confession. This is an example of a confession. This is an example of a confession. This is an example of a confession. This is an exdddample of a confession. This is an example of a confession. This is an example of a confession. This is an exaddmple of a confession. This is an exdddample of a confession. This is an example of a confession. This is an example of a confession. This is an example of a confession.",
         "This is an example of a confession. This is an example of a confession. This is an exdddample of a confession. This is an example of a confession. This is an example of a confession. This is an exaddmple of a confession. This is an exdddample of a confession. This is an example of a confession. This is an example of a confession. This is an example of a confession. This is an example of a confession. This is an example of a confession. This is an exdddample of a confession. This is an example of a confession. This is an example of a confession. This is an exaddmple of a confession. This is an exdddample of a confession. This is an example of a confession. This is an example of a confession. This is an example of a confession."
     ]
 	$scope.percent = '75%';
-    $scope.posts = dummyPosts;
+    $scope.posts = Posts;
 
     $scope.loadMoreBtn = function(){
         $scope.posts.push("test");
