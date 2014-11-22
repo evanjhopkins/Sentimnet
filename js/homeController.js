@@ -33,6 +33,12 @@ storganManley.controller('homeController', function($scope) {
     $scope.posts = dummyPosts;
 
     $scope.loadMoreBtn = function(){
-           $scope.posts.push("test");
+        $scope.posts.push("test");
+        $scope.posts.push("test");
+        $scope.posts.push("test");
+        $scope.posts.push("test");
+        $scope.posts.push("test");
+        $scope.posts.push("test");
+        $scope.posts.push("test");
     };
 });
