@@ -1,5 +1,4 @@
-function navController($scope) {
-    $scope.percent = "75%";
+storganManley.controller('navController', function($scope) {
 
- 
-}
+
+});

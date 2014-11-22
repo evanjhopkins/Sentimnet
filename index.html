@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="storganManley">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,10 +23,10 @@
 		</nav>
 	</div>
 
-	<div ng-controller="headController">
+	<div ng-view>
     	<h1>{{ percent }}</h1>
     </div>
-    <script src="js/headController.js"></script>
+    <script src="js/homeController.js"></script>
 	<script src="js/navController.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
