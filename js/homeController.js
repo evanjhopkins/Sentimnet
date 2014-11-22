@@ -30,9 +30,9 @@ storganManley.controller('homeController', function($scope) {
         "This is an example of a confession. This is an example of a confession. This is an exdddample of a confession. This is an example of a confession. This is an example of a confession. This is an exaddmple of a confession. This is an exdddample of a confession. This is an example of a confession. This is an example of a confession. This is an example of a confession. This is an example of a confession. This is an example of a confession. This is an exdddample of a confession. This is an example of a confession. This is an example of a confession. This is an exaddmple of a confession. This is an exdddample of a confession. This is an example of a confession. This is an example of a confession. This is an example of a confession."
     ]
 	$scope.percent = '75%';
-    $scope.posts = 
+    $scope.posts = dummyPosts;
 
     $scope.loadMoreBtn = function(){
-
+           $scope.posts.push("test");
     };
 });
