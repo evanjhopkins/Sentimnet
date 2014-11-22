@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Stanley Morgan</title>
 	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/home.css" rel="stylesheet">
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
 </head>
 <body>
@@ -27,7 +28,7 @@
         		 <h4 class="pull-right">{{ title }}</h4>
 			</div>
 		</nav>
-		
+
 		<div ng-show="showError" class="alert alert-danger">
 			<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
 			{{ error }} 
@@ -37,6 +38,7 @@
 	<div ng-view>
  
     </div>
+
     <script src="js/homeController.js"></script>
 	<script src="js/navController.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

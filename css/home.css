@@ -1,0 +1,14 @@
+.centerText {
+	text-align: center;
+}
+#post-wrapper{
+	width: 90%;
+	margin-left: 5%;
+}
+.post{
+	width: 100%;
+	min-height: 75px;
+	border: 1px solid #CCD8FC;
+	border-radius: 10px;
+	margin-bottom: 10px;
+}
