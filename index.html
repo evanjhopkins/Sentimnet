@@ -37,7 +37,7 @@ window.onload = function(){
 			</div>
 		</nav>
 
-		<div ng-show="error.message" class="alert alert-danger">
+		<div id="error" ng-show="error.message" class="alert alert-danger" ng-click="hideError()">
 			<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
 			{{ error.message }} 
 		</div>
@@ -60,9 +60,9 @@ window.onload = function(){
     <div id="submitModalWrapper">
 		<div id="submitModal" ng-controller="submitController">
 		<h2>Submit a Confession</h2><hr>
-		<textarea rows="10" cols="65" ng-model="postText">
+		<textarea rows="10" cols="50" ng-model="postText" >
 			
-		</textarea>
+		</textarea >
 			<div class="pull-right modal-buttons">
 				<button class="btn btn-default" ng-click="submitBtn()" >Submit</button>
 				<button class="btn btn-default" ng-click="cancelBtn()" >Cancel</button>

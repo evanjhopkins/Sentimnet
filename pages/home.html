@@ -1,3 +1,16 @@
+<div id="sort" class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+    {{ dropdownSelection }}
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+    <li role="presentation" class="hoverPointer"><a ng-click="sort(1)" role="menuitem" tabindex="-1" >Positive</a></li>
+    <li role="presentation" class="hoverPointer"><a ng-click="sort(2)" role="menuitem" tabindex="-1" >Negative</a></li>
+    <li role="presentation" class="hoverPointer"><a ng-click="sort(0)" role="menuitem" tabindex="-1" >Recent</a></li>
+  </ul>
+</div>
+
+
 <div class="row-fluid">
 	<div class="span12">
 		<div id="percent" class="centerText">{{ percent }}</div>
@@ -6,6 +19,7 @@
 	<div id="post-wrapper" ng-repeat="post in posts.posts">
 		<div class=" post open-sans-light">
 		{{ post }}
+		<div class="date">9/11/2001</div>
 		</div>
 	</div>
 

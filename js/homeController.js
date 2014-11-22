@@ -31,7 +31,7 @@ storganManley.config(function($routeProvider) {
 });
 
 
-storganManley.controller('homeController', function($scope, PostService) {
+storganManley.controller('homeController', function($scope, PostService, ErrorService) {
     var dummyPosts = [
         "This is an example of a confession. This is an example of a confession. This is an exdddample of a confession. This is an example of a confession. This is an example of a confession. This is an exaddmple of a confession. This is an exdddample of a confession. This is an example of a confession. This is an example of a confession. This is an example of a confession.",
         "This is an example of a confession. This is an example of a confession. This is an exdddample of a confession. This is an example of a confession. This is an example of a confession. This is an exaddmple of a confession. This is an exdddample of a confession. This is an example of a confession. This is an example of a confession. This is an example of a confession. This is an example of a confession. This is an example of a confession. This is an exdddample of a confession. This is an example of a confession. This is an example of a confession. This is an exaddmple of a confession. This is an exdddample of a confession. This is an example of a confession. This is an example of a confession. This is an example of a confession. This is an example of a confession. This is an example of a confession. This is an exdddample of a confession. This is an example of a confession. This is an example of a confession. This is an exaddmple of a confession. This is an exdddample of a confession. This is an example of a confession. This is an example of a confession. This is an example of a confession.",
@@ -39,14 +39,33 @@ storganManley.controller('homeController', function($scope, PostService) {
     ]
 	$scope.percent = '75%';
     $scope.posts = PostService;
+    $scope.error = ErrorService;
+    $scope.dropdownSelection = "Recentt";
+
 
     $scope.loadMoreBtn = function(){
-        $scope.posts.push("test");
-        $scope.posts.push("test");
-        $scope.posts.push("test");
-        $scope.posts.push("test");
-        $scope.posts.push("test");
-        $scope.posts.push("test");
-        $scope.posts.push("test");
+        $scope.posts.posts.push("test");
+        $scope.posts.posts.push("test");
+        $scope.posts.posts.push("test");
+        $scope.posts.posts.push("test");
+        $scope.posts.posts.push("test");
+        
+    };
+    var lastSort = 0;
+    $scope.sort = function(sortID){
+        lastSort = sortID;
+        switch(sortID) {
+            case 0:
+                $scope.dropdownSelection = "Recent";
+                break;
+            case 1:
+                $scope.dropdownSelection = "Positive";
+                break;
+            case 2:
+                $scope.dropdownSelection = "Negative";
+                break;
+            default:
+                $scope.sort(lastSort);
+        }
     };
 });
