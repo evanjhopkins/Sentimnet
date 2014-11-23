@@ -5,7 +5,7 @@ storganManley.factory("ErrorService", function(){
 });
 
 storganManley.factory("PostService", function(){
-    return {posts: ["I am a post from a service", "test"]}
+    return {posts: [{"text": "This is an example post", "date":"11/22/2014", "sentiment":45} ]}
 });
 
 storganManley.config(function($routeProvider) {
@@ -32,11 +32,6 @@ storganManley.config(function($routeProvider) {
 
 
 storganManley.controller('homeController', function($scope, PostService, ErrorService) {
-    var dummyPosts = [
-        "This is an example of a confession. This is an example of a confession. This is an exdddample of a confession. This is an example of a confession. This is an example of a confession. This is an exaddmple of a confession. This is an exdddample of a confession. This is an example of a confession. This is an example of a confession. This is an example of a confession.",
-        "This is an example of a confession. This is an example of a confession. This is an exdddample of a confession. This is an example of a confession. This is an example of a confession. This is an exaddmple of a confession. This is an exdddample of a confession. This is an example of a confession. This is an example of a confession. This is an example of a confession. This is an example of a confession. This is an example of a confession. This is an exdddample of a confession. This is an example of a confession. This is an example of a confession. This is an exaddmple of a confession. This is an exdddample of a confession. This is an example of a confession. This is an example of a confession. This is an example of a confession. This is an example of a confession. This is an example of a confession. This is an exdddample of a confession. This is an example of a confession. This is an example of a confession. This is an exaddmple of a confession. This is an exdddample of a confession. This is an example of a confession. This is an example of a confession. This is an example of a confession.",
-        "This is an example of a confession. This is an example of a confession. This is an exdddample of a confession. This is an example of a confession. This is an example of a confession. This is an exaddmple of a confession. This is an exdddample of a confession. This is an example of a confession. This is an example of a confession. This is an example of a confession. This is an example of a confession. This is an example of a confession. This is an exdddample of a confession. This is an example of a confession. This is an example of a confession. This is an exaddmple of a confession. This is an exdddample of a confession. This is an example of a confession. This is an example of a confession. This is an example of a confession."
-    ]
 	$scope.percent = '75%';
     $scope.posts = PostService;
     $scope.error = ErrorService;

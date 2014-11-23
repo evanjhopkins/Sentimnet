@@ -7,7 +7,7 @@ storganManley.controller('submitController', function($scope, PostService, Error
     $scope.submitBtn = function(){
     	
     	if(postValidate($scope.postText)){
-    		$scope.posts.posts.unshift($scope.postText);
+    		$scope.posts.posts.unshift({"text": $scope.postText, "date":"11/22/2014", "sentiment":45});
     		$scope.cancelBtn();
     	}else{
     		$scope.error.message = "You left the post field blank";
