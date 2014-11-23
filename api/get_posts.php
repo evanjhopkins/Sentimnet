@@ -7,7 +7,7 @@ function sendResponse($status = 200, $body = ''){
     echo json_encode($body);
 }
 
-db = new PDO('pgsql:host=54.148.105.214;dbname=sentiment;charset=utf8', 'manley', 'storgan');
+db = new PDO('pgsql:host=54.148.105.214;dbname=sentiment;charset=utf8', 'ec2-user', 'storgan');
 
 if( isset($_POST['group_id']) ){
 
