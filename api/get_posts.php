@@ -1,19 +1,24 @@
 <?php 
-
 date_default_timezone_set("America/New_York");
 
 function sendResponse($status = 200, $body = ''){
     header('Content-Type: application/json');
     echo json_encode($body);
 }
+//$db = new PDO('mysql:host=localhost;dbname=sentiment;user=storgan;password=manley');
+$db = new PDO('mysql:host=localhost;dbname=sentiment', 'root', '');
 
-$db = new PDO('pgsql:host=54.148.105.214;dbname=sentiment;charset=utf8', 'ec2-user', 'storgan');
-
-if( isset($_POST['group_id']) ){
-
+if( isset($_POST['group_id'])) {
 	$group_id = $_POST['group_id'];
+	$sortBy = $_POST['sort_by'];
+} else if (isset($_GET['group_id'])){
+	$group_id = $_GET['group_id'];
+	$sortBy = $_GET['sort_by'];
+}
+
+if( isset($group_id)){
 	$count = isset($_POST['count'])    ?$_POST['count'] :10;
-	$sortBy = isset($_POST['sort_by']) ?$_POST['count'] :'most_recent';
+	$sortBy = isset($sortBy)           ?$sortBy :'most_recent';
 	$after  = isset($_POST['after'])   ?$_POST['after'] :'';
 
 	if($sortBy == 'positive'){
@@ -21,18 +26,19 @@ if( isset($_POST['group_id']) ){
 	} else if($sortBy == 'negative'){
 		$sortParam = 'post_sentiment ASC';
 	} else {
-		$sortParam = 'post_time DESC';
+		$sortParam = 'post_date DESC';
 	}
-	$queryStr = "SELECT p.*, group_name
-                    FROM posts p, groups g
-                    WHERE post_time > (now() - INTERVAL 1 DAY)
-                    ORDER BY $sortParam";
+	$queryStr = "SELECT p.*
+                    FROM posts p
+                    WHERE post_date > (NOW() - INTERVAL 1 DAY)
+		    AND group_id = ?
+                    ORDER BY $sortParam;";
 
-    $query = $this->db->prepare($queryStr);
-    $query->execute();
-    $result = $query->fetchAll(PDO::FETCH_ASSOC);
-	sendResponse(200, posts);
+    $query = $db->prepare($queryStr);
+    $query->execute(array($group_id));
+    $posts = $query->fetchAll(PDO::FETCH_ASSOC);
+    sendResponse(200, $posts);
+} else {
+   sendResponse(400, 'group_id missing');
 }
-sendResponse(400, 'group_id missing');
-
- ?>
+?>
