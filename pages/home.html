@@ -13,7 +13,7 @@
 
 <div class="row-fluid">
 	<div class="span12">
-		<div id="percent" class="centerText">{{ percent }}%</div>
+		<div id="percent" class="centerText">{{ percent.value }}%</div>
 	</div>
 
 	<div id="post-wrapper" ng-repeat="post in posts.posts">
@@ -22,8 +22,7 @@
 		<div class="date">{{ post.date }}</div>
 		</div>
 	</div>
-
-	<div id="loadMore" ng-click="loadMoreBtn()">
+	<!--<div id="loadMore" ng-click="loadMoreBtn()">
 		Load More
-	</div>
+	</div>-->
 </div>

@@ -20,20 +20,20 @@ window.onload = function(){
 <body>
 
   	<div ng-controller="navController">
-		<nav class="navbar navbar-default" role="navigation">
+		<nav class="navbar navbar-inverse" role="navigation">
 			<div class="container-fluid">
 				<div class="navbar-header">
 					<a class="navbar-brand" href="#">
-						<img alt="Brand" src="img/marist.png" height="25">
+						<img alt="Brand" src="http://i.imgur.com/60tOfDb.png" height="25">
 					</a>
 					<span class="icon-bar"></span>
 				</div>
 				<ul class="nav navbar-nav">
-        			<li ng-click="homeBtn()" class="active hoverPointer"><a href="/">Home <span class="sr-only">(current)</span></a></li>
-        			<li><a ng-click="chartBtn()" href="#chart">Chart </a></li>
+        			<li ng-click="homeBtn()" class="hoverPointer" id="homeBtn"><a href="/">Home </a></li>
+        			<li id="chartBtn" class=""><a ng-click="chartBtn()" href="#chart">Chart <span class="sr-only">(current)</span></a></li>
         			<li ng-click="submitBtn()" class="hoverPointer" ><a>Submit </a></li>
         		</ul>
-        		 <h4 class="pull-right">{{ title }}</h4>
+        		 <h4 class="pull-right" style="color: #ffffff">Marist College</h4>
 			</div>
 		</nav>
 

@@ -4,9 +4,13 @@ storganManley.controller('navController', function($scope, ErrorService) {
 	$scope.error = ErrorService;
 
 	$scope.homeBtn = function(){
+		$( "#homeBtn" ).addClass("active");
+		$( "#chartBtn" ).removeClass("active");
 		$scope.hideError();
 	};
 	$scope.chartBtn = function(){
+		 $( "#homeBtn" ).removeClass("active");
+                $( "#chartBtn" ).addClass("active");
 		$scope.hideError();
 	};
 

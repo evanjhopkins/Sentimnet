@@ -1,4 +1,4 @@
-storganManley.controller('submitController', function($scope, PostService, ErrorService) {
+storganManley.controller('submitController', function($http, $scope, PostService, ErrorService) {
     $scope.title = "Chart Page";
     $scope.postText = "";
 	$scope.posts = PostService;
@@ -8,7 +8,8 @@ storganManley.controller('submitController', function($scope, PostService, Error
     	
     	if(postValidate($scope.postText)){
     		$scope.posts.posts.unshift({"text": $scope.postText, "date":"11/22/2014", "sentiment":45});
-    		$scope.cancelBtn();
+    		submitPost($scope.postText);
+		$scope.cancelBtn();
     	}else{
     		$scope.error.message = "You left the post field blank";
     		$scope.cancelBtn();
@@ -18,7 +19,8 @@ storganManley.controller('submitController', function($scope, PostService, Error
 	var hashIndex = url.indexOf("#");
 	var route = url.substring(hashIndex+2, url.length);
 	if(route=="chart"){
-		window.location.href = '/';
+		$("#homeBtn").trigger( "click" );
+		//window.location.href = '/';
 	}
 
 		
@@ -32,6 +34,16 @@ storganManley.controller('submitController', function($scope, PostService, Error
 		submitModalWrapper.fadeOut();
 		$scope.postText = "";
     };
+function submitPost(postText){  
+//  $scope.update = function() {
+        $http.get('/api/submit_post.php?group_id=1&post='+encodeURIComponent(postText)).    
+    success(function(data, status, headers, config) {
+        
+        }).
+            error(function(data, status, headers, config) {
+            console.log("error");
+        });
+            }
 
     function postValidate(text){
     	if(!text){

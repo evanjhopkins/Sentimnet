@@ -1,12 +1,16 @@
-storganManley.controller('chartController', function($scope) {
-    $scope.title = "Chart Page";
+storganManley.factory("PercentService", function(){
+    return {value: 0.0}
+});
 
+storganManley.controller('chartController', function($scope, PercentService) {
+    $scope.title = "Chart Page";
+$scope.percentService = PercentService;
     var ctx = $("#myChart").get(0).getContext("2d");
     // This will get the first returned node in the jQuery collection.
     //
     var data = {
-    labels: ["January","",  "February","", "March","", "April","", "May","", "June","", "July",""],
-    datasets: [
+    labels: ["May","",  "June","", "July","", "August","", "September","", "October","", "November",""],
+	datasets: [
         {
             label: "Sentiment",
             fillColor: "rgba(151,187,205,0.2)",
@@ -15,13 +19,18 @@ storganManley.controller('chartController', function($scope) {
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
             pointHighlightStroke: "rgba(151,187,205,1)",
-            data: [65, 35, 59, 77, 80, 62, 81,56,  56, 76, 55, 22, 40, 20]
+            data: [65, 35, 59, 77, 80, 62, 81,56,  56, 76, 55, 22, 40, $scope.percentService.value]
 
 	}
     ]
 };
 
 var options = {
+
+   scaleOverride: true,
+    scaleSteps: 20,
+    scaleStepWidth: Math.ceil(100 / 10),
+    scaleStartValue: -100,
 
      //Boolean - Whether grid lines are shown across the chart
         scaleShowGridLines : true,
