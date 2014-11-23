@@ -13,6 +13,7 @@ storganManley.controller('submitController', function($scope, PostService, Error
     		$scope.error.message = "You left the post field blank";
     		$scope.cancelBtn();
     	}
+    	$scope.postText = "";
     };
 
     $scope.cancelBtn = function(){
@@ -20,6 +21,7 @@ storganManley.controller('submitController', function($scope, PostService, Error
 		var submitModalWrapper = $("#submitModalWrapper");
 		submitModal.fadeOut();
 		submitModalWrapper.fadeOut();
+		$scope.postText = "";
     };
 
     function postValidate(text){

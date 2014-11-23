@@ -12,8 +12,11 @@ storganManley.controller('navController', function($scope, ErrorService) {
 
 	$scope.submitBtn = function(){
 		$scope.hideError();
+		var textArea = $("#postInput");
 		var submitModal = $("#submitModal");
 		var submitModalWrapper = $("#submitModalWrapper");
+
+		textArea.value = "butts";
 		if(submitModal.is(":visible")){
 			submitModal.hide();
 			submitModalWrapper.hide();

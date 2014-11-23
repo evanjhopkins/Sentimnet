@@ -32,10 +32,10 @@ storganManley.config(function($routeProvider) {
 
 
 storganManley.controller('homeController', function($scope, PostService, ErrorService) {
-	$scope.percent = '75%';
+	$scope.percent = 75;
     $scope.posts = PostService;
     $scope.error = ErrorService;
-    $scope.dropdownSelection = "Recentt";
+    $scope.dropdownSelection = "Recent";
 
 
     $scope.loadMoreBtn = function(){
