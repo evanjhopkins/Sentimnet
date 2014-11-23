@@ -14,6 +14,15 @@ storganManley.controller('submitController', function($scope, PostService, Error
     		$scope.cancelBtn();
     	}
     	$scope.postText = "";
+	var url = document.URL;
+	var hashIndex = url.indexOf("#");
+	var route = url.substring(hashIndex+2, url.length);
+	if(route=="chart"){
+		window.location.href = '/';
+	}
+
+		
+	
     };
 
     $scope.cancelBtn = function(){
