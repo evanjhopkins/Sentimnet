@@ -7,14 +7,14 @@ function sendResponse($status = 200, $body = ''){
     echo json_encode($body);
 }
 
-db = new PDO('pgsql:host=54.148.105.214;dbname=sentiment;charset=utf8', 'ec2-user', 'storgan');
+$db = new PDO('pgsql:host=54.148.105.214;dbname=sentiment;charset=utf8', 'ec2-user', 'storgan');
 
 if( isset($_POST['group_id']) ){
 
 	$group_id = $_POST['group_id'];
-	$count = isset($_POST['count']) ?$_POST['count'] ?10;
+	$count = isset($_POST['count'])    ?$_POST['count'] :10;
 	$sortBy = isset($_POST['sort_by']) ?$_POST['count'] :'most_recent';
-	$after = isset($_POST['after']) ?$_POST['after']) ?'';
+	$after  = isset($_POST['after'])   ?$_POST['after'] :'';
 
 	if($sortBy == 'positive'){
 		$sortParam = 'post_sentiment DESC';
