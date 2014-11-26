@@ -39,13 +39,13 @@ window.onload = function(){
 
 		<div id="error" ng-show="error.message" class="alert alert-danger" ng-click="hideError()">
 			<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-			{{ error.message }} 
+			{{ error.message }}
 		</div>
 
 	</div>
 
 	<div ng-view>
- 
+
     </div>
 
     <div id="footer">
@@ -62,10 +62,11 @@ window.onload = function(){
 		<div id="submitModal" ng-controller="submitController">
 		<h2>Submit a Confession</h2><hr>
 		<textarea rows="10" cols="50" ng-model="postText" >
-			
+
 		</textarea >
 			<div class="pull-right modal-buttons">
-				<button class="btn btn-default" ng-click="submitBtn()" >Submit</button>
+				<button ng-show="postText.length > 0" class="btn btn-default" ng-click="submitBtn()" >Submit</button>
+				<button ng-hide="postText.length > 0" class="btn btn-default" disabled >Submit</button>
 				<button class="btn btn-default" ng-click="cancelBtn()" >Cancel</button>
 			</div>
 		</div>
