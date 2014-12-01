@@ -1,21 +1,20 @@
 storganManley.controller('navController', function($scope, ErrorService) {
-	$scope.title = "Sentim.Net";
 	$scope.showError = false;
 	$scope.error = ErrorService;
 
 	$scope.homeBtn = function(){
 		$( "#homeBtn" ).addClass("active");
 		$( "#chartBtn" ).removeClass("active");
-		$scope.hideError();
+		$scope.error.message="";
 	};
 	$scope.chartBtn = function(){
 		 $( "#homeBtn" ).removeClass("active");
                 $( "#chartBtn" ).addClass("active");
-		$scope.hideError();
+		$scope.error.message="";
 	};
 
 	$scope.submitBtn = function(){
-		$scope.hideError();
+		$scope.error.message="";
 		var textArea = $("#postInput");
 		var submitModal = $("#submitModal");
 		var submitModalWrapper = $("#submitModalWrapper");
@@ -30,9 +29,6 @@ storganManley.controller('navController', function($scope, ErrorService) {
 		}
 	};
 
-	$scope.hideError = function(){
-		$scope.error.message="";
-	}
 
 
 });
