@@ -28,11 +28,15 @@ if( isset($group_id)){
 	} else {
 		$sortParam = 'post_date DESC';
 	}
-	$queryStr = "SELECT p.*
-                    FROM posts p
-                    WHERE post_date > (NOW() - INTERVAL 1 DAY)
-		    AND group_id = ?
-                    ORDER BY $sortParam;";
+//	$queryStr = "SELECT p.*
+//                    FROM posts p
+//                    WHERE post_date > (NOW() - INTERVAL 1 DAY)
+//		    AND group_id = ?
+//					ORDER BY $sortParam;";
+	$queryStr = "SELECT p.* 
+					FROM posts p
+					WHERE group_id = ?
+					ORDER BY $sortParam;";
 
     $query = $db->prepare($queryStr);
     $query->execute(array($group_id));
