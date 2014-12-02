@@ -1,0 +1,7 @@
+#myChart{
+	margin-left: calc(50% - 300px);
+	margin-left: -moz-calc(50% - 300px);
+	margin-left: -webkit-calc(50% - 300px);
+	margin-left: -o-calc(100% - 300px);
+
+}

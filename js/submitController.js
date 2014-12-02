@@ -1,5 +1,4 @@
 storganManley.controller('submitController', function($http, $scope, PostService, ErrorService) {
-    $scope.title = "Chart Page";
     $scope.postText = "";
 	$scope.posts = PostService;
 	$scope.error = ErrorService;
@@ -15,16 +14,13 @@ storganManley.controller('submitController', function($http, $scope, PostService
     		$scope.cancelBtn();
     	}
     	$scope.postText = "";
-	var url = document.URL;
-	var hashIndex = url.indexOf("#");
-	var route = url.substring(hashIndex+2, url.length);
-	if(route=="chart"){
-		$("#homeBtn").trigger( "click" );
-		//window.location.href = '/';
-	}
-
-		
-	
+		var url = document.URL;
+		var hashIndex = url.indexOf("#");
+		var route = url.substring(hashIndex+2, url.length);
+		if(route=="chart"){
+			$("#homeBtn").trigger( "click" );
+			window.location.href = '#/';
+		}
     };
 
     $scope.cancelBtn = function(){
