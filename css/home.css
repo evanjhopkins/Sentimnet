@@ -1,3 +1,19 @@
+.positive{
+	color: green;
+}
+.negative{
+	color: red;
+}
+.neutral{
+	color: #999999;
+}
+.postText{
+}
+.postSentiment{
+	float: left;
+	height: 100%;
+	margin-right: 10px;
+}
 #sort{
 	margin-left: 20px;
 }

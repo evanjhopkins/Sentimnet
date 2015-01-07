@@ -18,8 +18,15 @@
 
 	<div id="post-wrapper" ng-repeat="post in posts.posts">
 		<div class=" post open-sans-light">
-		{{ post.text }}
-		<div class="date">{{ post.date }}</div>
+		<div class="postSentiment">
+			<div class="glyphicon glyphicon-certificate positive" ng-show="post.sentiment > 0"></div>
+			<div class="glyphicon glyphicon-certificate negative" ng-show="post.sentiment < 0"></div>
+			<div class="glyphicon glyphicon-certificate neutral" ng-show="post.sentiment == 0"></div>
+		</div ><div class="postText">
+			{{ post.text }}
+		</div><div class="date">
+			{{ post.date }}
+		</div>
 		</div>
 	</div>
 	<!--<div id="loadMore" ng-click="loadMoreBtn()">

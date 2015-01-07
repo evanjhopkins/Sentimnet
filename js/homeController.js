@@ -7,7 +7,30 @@ storganManley.factory("ErrorService", function(){
 storganManley.factory("PostService", function(){
     return {posts: [ ]}
 });
+storganManley.service("UpdateService", function($http, PostService){
+	this.update = function(sortType){
+	 $http.get('/api/get_posts.php?group_id=1&count=12&sort_by='+sortType).    
+        success(function(data, status, headers, config) {
+            var percentVal = 0.0;
+            var posts = [];
+			//$scope.posts.posts = [];
+            for (i = 0; i < data.length; i++) { 
+                var newPost = data[i];
+                posts.push({"text":newPost.post_text , "date":newPost.post_date, "sentiment":newPost.post_sentiment});
+                percentVal  = percentVal + parseFloat(newPost.post_sentiment);
+                //console.log($scope.percent.value);
+            }
+            percentVal = percentVal / data.length;
+            percentVal = Math.round(percentVal * 100);
+			//console.log(posts);
+			PostService.posts = posts;	
+		}).
+        error(function(data, status, headers, config) {
+            console.log("error fetching posts");
+        });
 
+	};
+});
 storganManley.config(function($routeProvider) {
     	$( "#homeBtn" ).addClass("active");
 	$routeProvider
@@ -36,7 +59,7 @@ storganManley.controller('homeController', function(PercentService, $scope, Post
 
     function update(sortType){	
         //	$scope.update = function() {
-        $http.get('/api/get_posts.php?group_id=1&sort_by='+sortType).    
+        $http.get('/api/get_posts.php?group_id=1&count=12&sort_by='+sortType).    
         success(function(data, status, headers, config) {
             $scope.percent.value = 0.0;
             $scope.posts.posts = [];

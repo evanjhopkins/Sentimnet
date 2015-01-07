@@ -1,14 +1,17 @@
-storganManley.controller('submitController', function($http, $scope, PostService, ErrorService) {
+storganManley.controller('submitController', function($http, $scope, $timeout, PostService,UpdateService, ErrorService)	 {
     $scope.postText = "";
 	$scope.posts = PostService;
 	$scope.error = ErrorService;
     
     $scope.submitBtn = function(){
-    	
+    	//UpdateService.update("most_recent");	
     	if(postValidate($scope.postText)){
-    		$scope.posts.posts.unshift({"text": $scope.postText, "date":"11/22/2014", "sentiment":45});
+			var date = new Date();
+    		$scope.posts.posts.unshift({"text": $scope.postText, "date":date.toString(), "sentiment":0});
     		submitPost($scope.postText);
-		$scope.cancelBtn();
+		//	UpdateService.update("most_recent");
+			//console.log(UpdateService.update("most_recent"));
+			$scope.cancelBtn();
     	}else{
     		$scope.error.message = "You left the post field blank";
     		$scope.cancelBtn();
@@ -21,6 +24,7 @@ storganManley.controller('submitController', function($http, $scope, PostService
 			$("#homeBtn").trigger( "click" );
 			window.location.href = '#/';
 		}
+		$timeout(function(){UpdateService.update("most_recent")},2000);
     };
 
     $scope.cancelBtn = function(){
