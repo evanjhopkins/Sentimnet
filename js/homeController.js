@@ -50,12 +50,19 @@ storganManley.config(function($routeProvider) {
 });
 
 
-storganManley.controller('homeController', function(PercentService, $scope, PostService, ErrorService, $http) {
+storganManley.controller('homeController', function($timeout, PercentService, $scope, PostService, ErrorService, $http) {
 	$scope.percent = PercentService;
     $scope.posts = PostService;
     $scope.error = ErrorService;
     $scope.dropdownSelection = "Recent";
 	update("most_recent");
+	$scope.refresher = function(){
+		$timeout(function(){
+			update("most_recent");
+			$scope.refresher();
+		}, 10000);
+	};
+	$scope.refresher();
 
     function update(sortType){	
         //	$scope.update = function() {
