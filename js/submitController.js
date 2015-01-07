@@ -1,4 +1,4 @@
-storganManley.controller('submitController', function($http, $scope, $timeout, PostService,UpdateService, ErrorService)	 {
+storganManley.controller('submitController', function($http, $filter, $scope, $timeout, PostService,UpdateService, ErrorService)	 {
     $scope.postText = "";
 	$scope.posts = PostService;
 	$scope.error = ErrorService;
@@ -6,7 +6,7 @@ storganManley.controller('submitController', function($http, $scope, $timeout, P
     $scope.submitBtn = function(){
     	//UpdateService.update("most_recent");	
     	if(postValidate($scope.postText)){
-			var date = new Date();
+			var date = $filter('date')(new Date(), 'yyyy-MM-dd HH:mm:ss');
     		$scope.posts.posts.unshift({"text": $scope.postText, "date":date.toString(), "sentiment":0});
     		submitPost($scope.postText);
 		//	UpdateService.update("most_recent");
