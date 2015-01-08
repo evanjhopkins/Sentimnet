@@ -103,4 +103,7 @@ storganManley.controller('homeController', function($timeout, PercentService, $s
                 $scope.sort(0);
         }
     };
+	$scope.loadMoreBtn = function(){
+		console.log('load more');
+	};
 });

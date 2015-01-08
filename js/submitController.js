@@ -4,13 +4,10 @@ storganManley.controller('submitController', function($http, $filter, $scope, $t
 	$scope.error = ErrorService;
     
     $scope.submitBtn = function(){
-    	//UpdateService.update("most_recent");	
     	if(postValidate($scope.postText)){
 			var date = $filter('date')(new Date(), 'yyyy-MM-dd HH:mm:ss');
     		$scope.posts.posts.unshift({"text": $scope.postText, "date":date.toString(), "sentiment":0});
     		submitPost($scope.postText);
-		//	UpdateService.update("most_recent");
-			//console.log(UpdateService.update("most_recent"));
 			$scope.cancelBtn();
     	}else{
     		$scope.error.message = "You left the post field blank";

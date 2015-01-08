@@ -15,17 +15,16 @@ storganManley.controller('navController', function($scope, ErrorService) {
 
 	$scope.submitBtn = function(){
 		$scope.error.message="";
-		var textArea = $("#postInput");
 		var submitModal = $("#submitModal");
 		var submitModalWrapper = $("#submitModalWrapper");
-
-		textArea.value = "butts";
+		
 		if(submitModal.is(":visible")){
 			submitModal.hide();
 			submitModalWrapper.hide();
 		}else{
 			submitModal.fadeIn();
 			submitModalWrapper.fadeIn();
+			$("#postText").focus();
 		}
 	};
 

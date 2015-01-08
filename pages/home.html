@@ -25,11 +25,11 @@
 		</div ><div class="postText">
 			{{ post.text }}
 		</div><div class="date">
-			{{ post.date }}
+			{{ post.date | date : 'yyy-mm-dd'}}
 		</div>
 		</div>
 	</div>
-	<!--<div id="loadMore" ng-click="loadMoreBtn()">
+	<div id="loadMore" ng-click="loadMoreBtn()">
 		Load More
-	</div>-->
+	</div>
 </div>
